@@ -4,46 +4,46 @@ spring:
     port: 6379
     password: Password01!
 
-#jetcache:
-#  statIntervalMinutes: 15
-#  areaInCacheName: false
-#  local:
-#    default:
-#      type: linkedhashmap
-#      keyConvertor: fastjson
-#      limit: 100
-#  remote:
-#    default:
-#      type: redis
-#      keyConvertor: fastjson
-#      valueEncoder: java
-#      valueDecoder: java
-#      poolConfig:
-#        minIdle: 5
-#        maxIdle: 20
-#        maxTotal: 50
-#      host: 192.168.190.128
-#      port: 6379
-#      password: Password01!
-
 jetcache:
-  statIntervalMinutes: 1 #统计间隔
+  statIntervalMinutes: 15
   areaInCacheName: false
   local:
-    default: #默认area
-      type: caffeine
+    default:
+      type: linkedhashmap
       keyConvertor: fastjson
+      limit: 100
   remote:
     default:
-      type: redis.lettuce #使用lettuce
+      type: redis
       keyConvertor: fastjson
       valueEncoder: java
       valueDecoder: java
       poolConfig:
-        minIdle: 1
-        maxIdle: 50
-        maxTotal: 1000
-        maxWait: 1000
-      #     uri: ['redis://password@192.168.14.231:6379/0','redis://password@192.168.14.232:6379/0','redis://password@192.168.14.233:6379/0']
-      uri:
-        - redis://Password01!@192.168.190.128:6379/0  #redis://密码@IP:端口/库
+        minIdle: 5
+        maxIdle: 20
+        maxTotal: 50
+      host: 192.168.190.128
+      port: 6379
+      password: Password01!
+
+#jetcache:
+#  statIntervalMinutes: 1 #统计间隔
+#  areaInCacheName: false
+#  local:
+#    default: #默认area
+#      type: caffeine
+#      keyConvertor: fastjson
+#  remote:
+#    default:
+#      type: redis.lettuce #使用lettuce
+#      keyConvertor: fastjson
+#      valueEncoder: java
+#      valueDecoder: java
+#      poolConfig:
+#        minIdle: 1
+#        maxIdle: 50
+#        maxTotal: 1000
+#        maxWait: 1000
+#      #     uri: ['redis://password@192.168.14.231:6379/0','redis://password@192.168.14.232:6379/0','redis://password@192.168.14.233:6379/0']
+#      uri:
+#        - redis://Password01!@192.168.190.128:6379/0  #redis://密码@IP:端口/库
